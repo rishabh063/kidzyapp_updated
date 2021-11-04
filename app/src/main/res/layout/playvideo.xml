@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+    tools:context=".playvideo">
+
+    <RelativeLayout
+        android:id="@+id/relative"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <VideoView
+            android:id="@+id/videoView1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <TextView
+            android:id="@+id/points_value"
+            android:layout_width="118dp"
+            android:layout_height="68dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:fontFamily="@font/poppins_semibold"
+            android:gravity="center"
+            android:text=""
+            android:textAlignment="center"
+            android:textColor="#B67700"
+            android:textSize="40sp" />
+        <TextView
+            android:id="@+id/textView1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:padding="20dp"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Follow Character"
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:textSize="46sp" />
+        <TextView
+            android:id="@+id/next_exer_timer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="20dp"
+            android:layout_alignParentBottom="true"
+            android:fontFamily="@font/poppins_bold"
+            android:text="Next Exercise in "
+            android:textColor="#ffffff"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+    </RelativeLayout>
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="22dp"
+        android:layout_height="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.809"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.11"
+        app:srcCompat="@drawable/coin" />
+    <ImageView
+        android:id="@+id/loadingimg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="-251dp"
+        tools:layout_editor_absoluteY="-116dp" />
+    <androidx.camera.view.PreviewView
+        android:id="@+id/previewview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <RelativeLayout
+        android:id="@+id/Callibration"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:id="@+id/text_img"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/loadingb"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="fitXY"
+                tools:layout_editor_absoluteX="0dp"
+                tools:layout_editor_absoluteY="0dp" />
+
+        </RelativeLayout>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/instructiontext"
+            android:textSize="40dp"
+            android:text="LOADING PLEASE WAIT"
+            android:textColor="#FFFFFF"
+            android:layout_marginTop="20dp"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/poppins_bold"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/restscreen"
+        android:visibility="invisible"
+        >
+        <ImageView
+            android:id="@+id/loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="fitXY"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="0dp" />
+
+        <ImageView
+            android:id="@+id/gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:textColor="#FFFFFF"
+            android:padding="70dp"
+            android:textSize="40dp"
+            android:id="@+id/resttime"
+            android:text="Next Exercise in 00:20"
+            />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerHorizontal="true"
+            android:padding="25dp"
+            android:text="Take some Rest"
+            android:textColor="#FFFFFF"
+            android:textSize="40dp"
+            android:fontFamily="@font/poppins_bold"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:id="@+id/score_timer"
+        android:visibility="visible"
+        android:paddingVertical="30dp"
+        android:layout_height="match_parent">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            android:layout_alignParentRight="true"
+            app:layout_constraintHorizontal_bias="0.986"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/coin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/coin" />
+            <ImageView
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_centerInParent="true"
+                android:id="@+id/giff"
+                />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="118dp"
+                android:layout_height="68dp"
+                android:layout_centerInParent="true"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:text="0"
+                android:textAlignment="center"
+                android:textColor="#B67700"
+                android:textSize="40sp" />
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.986"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.104">
+
+            <ImageView
+                android:id="@+id/timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                app:srcCompat="@drawable/timericon" />
+
+            <TextView
+                android:id="@+id/timeleft"
+                android:layout_width="118dp"
+                android:layout_height="68dp"
+                android:gravity="center"
+                android:fontFamily="@font/poppins_semibold"
+                android:text="15:00"
+                android:paddingTop="8dp"
+                android:layout_centerInParent="true"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="25sp" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+android:visibility="invisible"
+        android:id="@+id/outofframe"
+        android:layout_height="match_parent">
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scaleType="fitXY"
+    android:src="@drawable/redbox"
+    android:id="@+id/redbox"
+    ></ImageView>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/temp1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:fontFamily="@font/poppins_semibold"
+        android:gravity="center"
+        android:text="Outside Frame \n Please Move in Frame"
+        android:textAlignment="center"
+        android:textColor="#333333"
+        android:textSize="50sp"
+        />
+<ImageView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/pointing"
+    android:layout_below="@id/temp1"
+    android:layout_centerHorizontal="true"
+    />
+        </RelativeLayout>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="invisible"
+        android:id="@+id/back_button_2">
+        <ImageView
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:src="@drawable/back_icon_game"
+            android:layout_margin="20dp"
+            android:id="@+id/back_button_button"
+            />
+    </RelativeLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

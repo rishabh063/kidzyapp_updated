@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:background="@drawable/blue_background"
+    android:layout_height="match_parent">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:weightSum="2">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/toad_valley"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    android:id="@+id/img1"
+                    />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/fruit_punch"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    android:id="@+id/img2"
+                    />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/reflex_drift"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    android:id="@+id/img3"
+                    />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/astra"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    android:id="@+id/img4"
+                    />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/ninja"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    android:id="@+id/img5"
+                    />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/doozy"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    android:id="@+id/img6"
+                    />
+            </TableRow>
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    android:src="@drawable/granny"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    android:id="@+id/img7"
+                    />
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+                    />
+
+
+                <com.google.android.material.imageview.ShapeableImageView
+                    android:layout_width="1dp"
+                    android:layout_height="200dp"
+                    android:adjustViewBounds="true"
+                    android:scaleType="fitXY"
+                    android:padding="10dp"
+                    android:layout_weight="1"
+                    app:shapeAppearanceOverlay="@style/roundimageview"
+
+                    />
+            </TableRow>
+        </TableLayout>
+    </ScrollView>
+
+</RelativeLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
