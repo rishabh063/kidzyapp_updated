@@ -42,7 +42,9 @@ public class MainActivity extends game_basic {
         setContentView(R.layout.activity_main);
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("home", bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("home", bundle);
 
         act=this;
         ImageView bt1=findViewById(R.id.img3);

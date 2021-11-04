@@ -35,6 +35,8 @@ public class game_base2 extends FragmentActivity {
         width = displayMetrics.widthPixels;
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 firebaseAnalytics.logEvent("game_base2", bundle);
 
     }

@@ -61,7 +61,10 @@ public class sample_video_images extends game_basic {
         Intent i=getIntent();
         int select=i.getIntExtra("select",1);
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("sample_video"+select, bundle);
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("sample_video"+select, bundle);
         if (select==1) {
             background.setImageResource(R.drawable.reflex_drift);
             videoUrl=Uri.parse("android.resource://" + getPackageName() + "/" +String.valueOf(R.raw.bubble));

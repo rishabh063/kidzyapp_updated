@@ -64,7 +64,9 @@ public class level_screen_1 extends game_basic {
         Intent intent = new Intent(this, gameplay_1.class);
         back=findViewById(R.id.back_button);
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("level_screen1", bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("level_screen1", bundle);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

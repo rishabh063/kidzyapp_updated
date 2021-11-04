@@ -87,7 +87,9 @@ public class base extends game_basic{
         cameraProviderFuture = ProcessCameraProvider.getInstance(this);
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("base", bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("base", bundle);
 
         cameraProviderFuture.addListener(new Runnable() {
             @Override

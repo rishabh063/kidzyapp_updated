@@ -111,7 +111,9 @@ public class gameplay_1 extends base {
         callibration_text=findViewById(R.id.call_text);
         level_num = intent.getIntExtra("level",2);
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("gameplay1"+level_num, bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("gameplay1"+level_num, bundle);
         max_score=intent.getIntExtra("max",180);
         bt1=findViewById(R.id.level_Complete_button);
         bt2=findViewById(R.id.level_over_button);

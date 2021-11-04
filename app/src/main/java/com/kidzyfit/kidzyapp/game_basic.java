@@ -43,6 +43,8 @@ public class game_basic extends AppCompatActivity {
         hideSystemUI();
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 firebaseAnalytics.logEvent("game_basic", bundle);
 
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);

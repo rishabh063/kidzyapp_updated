@@ -86,7 +86,9 @@ public class playvideo extends base2{
         flag=0;
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("playvideo_character"+character, bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("playvideo_character"+character, bundle);
     }
     public int getRotation(Context context) {
         final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();

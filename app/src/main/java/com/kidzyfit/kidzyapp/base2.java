@@ -93,6 +93,8 @@ public class base2 extends game_basic {
         final int[] y = {0};
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 firebaseAnalytics.logEvent("base2", bundle);
 
     }

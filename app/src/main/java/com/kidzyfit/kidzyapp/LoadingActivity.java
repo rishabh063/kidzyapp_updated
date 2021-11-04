@@ -41,7 +41,9 @@ public class LoadingActivity extends AppCompatActivity {
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         act=this;
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("loading_act", bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("loading_act", bundle);
 
         playvideo.character=character;
         Intent switchActivityIntent = new Intent(act, playvideo.class);

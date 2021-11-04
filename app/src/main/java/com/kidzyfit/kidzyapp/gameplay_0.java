@@ -807,7 +807,9 @@ public class gameplay_0 extends base {
             cut=BitmapFactory.decodeResource(getResources(),R.drawable.orange_cut);
         }
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("game_play_0 result"+result+" progress"+progress, bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("game_play_0 result"+result+" progress"+progress, bundle);
         Level_Score=20+result + 14*progress;
         Log.i("progress_Value", "update_fruits: "+progress);
     }

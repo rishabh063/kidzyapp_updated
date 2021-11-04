@@ -62,7 +62,9 @@ public class Map extends game_basic {
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("map", bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("map", bundle);
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -120,7 +120,9 @@ public class gameplay_2 extends com.kidzyfit.kidzyapp.base {
         multiplier=intent.getIntExtra("multi",3);
         level=intent.getIntExtra("level",1);
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("gameplay2"+level, bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("gameplay2"+level, bundle);
         rand=new Random();
         score_text=findViewById(R.id.score_text);
         bt1=findViewById(R.id.level_Complete_button);

@@ -38,7 +38,9 @@ public class start1 extends AppCompatActivity {
             }});
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("start1", bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("start1", bundle);
 
 
     }

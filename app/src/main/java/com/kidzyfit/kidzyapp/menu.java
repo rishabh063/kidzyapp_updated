@@ -86,7 +86,9 @@ public class menu extends game_basic {
         });
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
         Bundle bundle = new Bundle();
-        firebaseAnalytics.logEvent("menu", bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+ firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("menu", bundle);
 
         shop_background=findViewById(R.id.shop_background);
         place_background=findViewById(R.id.place_background);

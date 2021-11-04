@@ -46,7 +46,8 @@ public class result extends game_basic{
         else if (result==4){
             temp.setImageResource(R.drawable.ninja_result);
         }
-        firebaseAnalytics.logEvent("playvideo_character"+result, bundle);
+         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+firebaseAnalytics.logEvent("playvideo_character"+result, bundle);
         Button temp_button=findViewById(R.id.Continue_button);
         temp_button.setOnClickListener(new View.OnClickListener() {
             @Override
