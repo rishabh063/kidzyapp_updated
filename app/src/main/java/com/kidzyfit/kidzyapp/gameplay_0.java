@@ -38,6 +38,8 @@ import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -98,11 +100,16 @@ public class gameplay_0 extends base {
     int game_over;
     CountDownTimer tim;
     int level_complete;
+    private FirebaseAnalytics firebaseAnalytics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         rand=new Random();
         setContentView(R.layout.activity_gameplay_0);
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+
         previewView=findViewById(R.id.camera_view);
         previewView.setVisibility(View.VISIBLE);
         drop=findViewById(R.id.juicedrop);
@@ -799,7 +806,8 @@ public class gameplay_0 extends base {
         else if (progress==3){
             cut=BitmapFactory.decodeResource(getResources(),R.drawable.orange_cut);
         }
-
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("game_play_0 result"+result+" progress"+progress, bundle);
         Level_Score=20+result + 14*progress;
         Log.i("progress_Value", "update_fruits: "+progress);
     }

@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -22,11 +24,16 @@ import java.util.Locale;
 
 public class result extends game_basic{
 
+    private FirebaseAnalytics firebaseAnalytics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Bundle bundle = getIntent().getExtras();
         Intent i=getIntent();
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+
         int result = i.getIntExtra("char",1);
         setContentView(R.layout.activity_result);
         ImageView temp=findViewById(R.id.background);
@@ -39,6 +46,7 @@ public class result extends game_basic{
         else if (result==4){
             temp.setImageResource(R.drawable.ninja_result);
         }
+        firebaseAnalytics.logEvent("playvideo_character"+result, bundle);
         Button temp_button=findViewById(R.id.Continue_button);
         temp_button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,6 +64,7 @@ public class result extends game_basic{
         // setting content view to dialog
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
         dialog.setContentView(R.layout.custom_dialogue);
+
 
         // getting reference of TextView
         TextView dialogButtonYes = (TextView) dialog.findViewById(R.id.textViewYes);

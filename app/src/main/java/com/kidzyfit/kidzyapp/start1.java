@@ -15,7 +15,11 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 public class start1 extends AppCompatActivity {
+
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +36,10 @@ public class start1 extends AppCompatActivity {
                 ImageViewAnimatedChange(act,next,next2);
 
             }});
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("start1", bundle);
+
 
     }
     public void ImageViewAnimatedChange(Context c, final ImageView v, final int new_image) {

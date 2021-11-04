@@ -28,6 +28,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.common.util.concurrent.ListenableFuture;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.pose.Pose;
 import com.google.mlkit.vision.pose.PoseDetection;
@@ -63,6 +64,7 @@ public class base2 extends game_basic {
     static float[][] cord= new float[40][6];
     static poscalculator calculator;
     ProcessCameraProvider cameraProvider;
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -89,6 +91,9 @@ public class base2 extends game_basic {
         redPaint.setStyle(Paint.Style.STROKE);
         final int[] x = {0};
         final int[] y = {0};
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+firebaseAnalytics.logEvent("base2", bundle);
 
     }
 

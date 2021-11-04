@@ -19,9 +19,13 @@ import android.widget.Toast;
 import android.widget.VideoView;
 import android.widget.MediaController;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 public class sample_video_images extends game_basic {
     Uri videoUrl ;
     ImageView back;
+    private FirebaseAnalytics firebaseAnalytics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,6 +42,8 @@ public class sample_video_images extends game_basic {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
+
+
         ImageView background=findViewById(R.id.background);
         Button start_button=findViewById(R.id.start_button);
         ImageView start_button_2=findViewById(R.id.start);
@@ -54,6 +60,8 @@ public class sample_video_images extends game_basic {
         });
         Intent i=getIntent();
         int select=i.getIntExtra("select",1);
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("sample_video"+select, bundle);
         if (select==1) {
             background.setImageResource(R.drawable.reflex_drift);
             videoUrl=Uri.parse("android.resource://" + getPackageName() + "/" +String.valueOf(R.raw.bubble));

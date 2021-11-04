@@ -26,6 +26,7 @@ import androidx.core.view.WindowCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.navigation.NavigationBarMenu;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import static android.view.View.SYSTEM_UI_FLAG_LAYOUT_HIDE_NAVIGATION;
 
@@ -33,12 +34,17 @@ public class game_basic extends AppCompatActivity {
     public int height;
     public int width;
     private float back_pressed = 0;
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game_basic);
         hideSystemUI();
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+firebaseAnalytics.logEvent("game_basic", bundle);
+
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         getWindow().setFlags(
                 WindowManager.LayoutParams.FLAG_FULLSCREEN,

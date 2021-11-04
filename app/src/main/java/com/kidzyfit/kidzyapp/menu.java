@@ -36,6 +36,7 @@ import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.xwray.groupie.Group;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
@@ -66,6 +67,8 @@ public class menu extends game_basic {
     private float back_pressed=0;
     ImageView fruit_gif;
     ImageView back;
+    private FirebaseAnalytics firebaseAnalytics;
+
     @SuppressLint("ResourceType")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +84,10 @@ public class menu extends game_basic {
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
             }
         });
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("menu", bundle);
+
         shop_background=findViewById(R.id.shop_background);
         place_background=findViewById(R.id.place_background);
         start_button=findViewById(R.id.new_fruit_unlocked_button);

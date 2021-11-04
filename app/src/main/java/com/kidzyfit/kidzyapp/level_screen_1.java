@@ -17,6 +17,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 public class level_screen_1 extends game_basic {
     RelativeLayout level1;
     RelativeLayout level2;
@@ -51,6 +53,7 @@ public class level_screen_1 extends game_basic {
     Activity act;
     ImageView back;
     private float back_pressed=0;
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +63,9 @@ public class level_screen_1 extends game_basic {
         int progress = prefs.getInt("myInt", 1); // 0 is default
         Intent intent = new Intent(this, gameplay_1.class);
         back=findViewById(R.id.back_button);
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("level_screen1", bundle);
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

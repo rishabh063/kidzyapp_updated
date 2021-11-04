@@ -33,6 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -99,6 +100,8 @@ public class gameplay_2 extends com.kidzyfit.kidzyapp.base {
     MediaPlayer mp_game_win;
     MediaPlayer mp_background;
     CountDownTimer tim;
+    private FirebaseAnalytics firebaseAnalytics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,10 +113,14 @@ public class gameplay_2 extends com.kidzyfit.kidzyapp.base {
         Gameplay=findViewById(R.id.game_view);
         callibration_text=findViewById(R.id.call_text);
         Intent intent = getIntent();
+
+
         seed = intent.getIntExtra("seed",1);
         modulus=intent.getIntExtra("modulus",7);
         multiplier=intent.getIntExtra("multi",3);
         level=intent.getIntExtra("level",1);
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("gameplay2"+level, bundle);
         rand=new Random();
         score_text=findViewById(R.id.score_text);
         bt1=findViewById(R.id.level_Complete_button);

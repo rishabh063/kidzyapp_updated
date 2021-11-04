@@ -24,6 +24,7 @@ import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.common.util.concurrent.ListenableFuture;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.google.mlkit.vision.common.InputImage;
 import com.google.mlkit.vision.face.Face;
 import com.google.mlkit.vision.face.FaceDetection;
@@ -77,12 +78,16 @@ public class base extends game_basic{
     public PoseLandmark rightFootIndex;
     public PoseLandmark nose ;
     private float back_pressed=0;
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_base);
         cameraProviderFuture = ProcessCameraProvider.getInstance(this);
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("base", bundle);
 
         cameraProviderFuture.addListener(new Runnable() {
             @Override

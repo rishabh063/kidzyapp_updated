@@ -24,11 +24,15 @@ import androidx.appcompat.app.AppCompatDelegate;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 public class LoadingActivity extends AppCompatActivity {
     static  int character=1;
     private static final String[] CAMERA_PERMISSION = new String[]{Manifest.permission.CAMERA};
     private static final int CAMERA_REQUEST_CODE = 10;
     Activity act;
+    private FirebaseAnalytics firebaseAnalytics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
@@ -36,6 +40,9 @@ public class LoadingActivity extends AppCompatActivity {
         setContentView(R.layout.loading);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
         act=this;
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("loading_act", bundle);
+
         playvideo.character=character;
         Intent switchActivityIntent = new Intent(act, playvideo.class);
         playvideo.totalmin=15;

@@ -27,6 +27,7 @@ import android.widget.VideoView;
 import androidx.appcompat.app.AppCompatDelegate;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.util.Calendar;
 import java.util.Date;
@@ -74,6 +75,8 @@ public class playvideo extends base2{
     RelativeLayout callibration;
     Boolean caliibrating =true;
     TextView next_exercise;
+    private FirebaseAnalytics firebaseAnalytics;
+
     @Override
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,6 +84,9 @@ public class playvideo extends base2{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.playvideo);
         flag=0;
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("playvideo_character"+character, bundle);
     }
     public int getRotation(Context context) {
         final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();
@@ -96,6 +102,7 @@ public class playvideo extends base2{
     }
     public void onBackPressed() {
         final Dialog dialog = new Dialog(playvideo.this);
+
 
         // setting content view to dialog
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));

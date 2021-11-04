@@ -25,6 +25,8 @@ import androidx.core.app.ActivityOptionsCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.view.MotionEventCompat;
 
+import com.google.firebase.analytics.FirebaseAnalytics;
+
 import static androidx.camera.core.CameraX.getContext;
 
 public class MainActivity extends game_basic {
@@ -33,13 +35,16 @@ public class MainActivity extends game_basic {
     private static final int CAMERA_REQUEST_CODE = 10;
     int select=0;
     private float back_pressed=0;
-
+    private static FirebaseAnalytics firebaseAnalytics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        act=this;
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("home", bundle);
 
+        act=this;
         ImageView bt1=findViewById(R.id.img3);
         ImageView bt2=findViewById(R.id.img2);
         ImageView bt3=findViewById(R.id.img1);

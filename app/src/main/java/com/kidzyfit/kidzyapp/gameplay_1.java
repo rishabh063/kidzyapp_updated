@@ -36,6 +36,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.analytics.FirebaseAnalytics;
 
 import java.text.BreakIterator;
 import java.util.ArrayList;
@@ -87,6 +88,7 @@ public class gameplay_1 extends base {
     MediaPlayer mp_game_win;
     MediaPlayer mp_background;
     private CountDownTimer tim;
+    private FirebaseAnalytics firebaseAnalytics;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -95,6 +97,9 @@ public class gameplay_1 extends base {
         previewView=findViewById(R.id.preview);
         imageView=findViewById(R.id.canvas);
         progressBar=findViewById(R.id.progress);
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+
         callibration_screen=findViewById(R.id.callibration_screen);
         mp_bubble=MediaPlayer.create(this, R.raw.bubble_burst);
         mp_time=MediaPlayer.create(this, R.raw.low_time);
@@ -105,6 +110,8 @@ public class gameplay_1 extends base {
         rand=new Random();
         callibration_text=findViewById(R.id.call_text);
         level_num = intent.getIntExtra("level",2);
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("gameplay1"+level_num, bundle);
         max_score=intent.getIntExtra("max",180);
         bt1=findViewById(R.id.level_Complete_button);
         bt2=findViewById(R.id.level_over_button);

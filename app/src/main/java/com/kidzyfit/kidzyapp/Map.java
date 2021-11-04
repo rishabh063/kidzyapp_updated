@@ -24,6 +24,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
+import com.google.firebase.analytics.FirebaseAnalytics;
 import com.xwray.groupie.Group;
 import com.xwray.groupie.GroupAdapter;
 import com.xwray.groupie.Item;
@@ -50,12 +51,19 @@ public class Map extends game_basic {
     int level=1;
     private float back_pressed=0;
     ImageView back;
+    private FirebaseAnalytics firebaseAnalytics;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         SharedPreferences prefs = getSharedPreferences("level1", MODE_PRIVATE);
         setContentView(R.layout.activity_map);
         back=findViewById(R.id.back_button);
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this);
+
+        Bundle bundle = new Bundle();
+        firebaseAnalytics.logEvent("map", bundle);
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

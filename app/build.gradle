@@ -1,7 +1,9 @@
 plugins {
     id 'com.android.application'
 }
-
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.3"
@@ -47,4 +49,7 @@ dependencies {
     implementation 'com.google.mlkit:face-detection:16.1.2'
     implementation 'com.github.bumptech.glide:glide:4.9.0'
     implementation 'com.xwray:groupie:2.1.0'
+    implementation platform('com.google.firebase:firebase-bom:29.0.0')
+    implementation 'com.google.firebase:firebase-analytics'
+    implementation 'com.google.firebase:firebase-crashlytics'
 }

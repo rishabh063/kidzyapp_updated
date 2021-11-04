@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "675621052835",
+    "project_id": "kidzyapp-f93dd",
+    "storage_bucket": "kidzyapp-f93dd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:675621052835:android:a1185ae96d5c0157493a16",
+        "android_client_info": {
+          "package_name": "com.kidzyfit.kidzyapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "675621052835-i74fscabgssdvgm53g278lhtinrh0o60.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kidzyfit.kidzyapp",
+            "certificate_hash": "c8c961ff6ece009608138f16549125d8bf05898e"
+          }
+        },
+        {
+          "client_id": "675621052835-mdj4kemfmp9t9m1vp3vn3ckgrkcgc89g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.kidzyfit.kidzyapp",
+            "certificate_hash": "499bbf54751258662624fc673281308f0ea4cf05"
+          }
+        },
+        {
+          "client_id": "675621052835-u7c5k195sjcimui2lkur584msg4jukbc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkEzhLxwNkxva6hWKm-29ou0t1hoTkN7g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "675621052835-ioesn237kn00nvkmmqnkdng8tj284djg.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
