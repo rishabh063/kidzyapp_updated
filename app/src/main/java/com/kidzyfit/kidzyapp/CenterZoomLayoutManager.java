@@ -36,8 +36,9 @@ public class CenterZoomLayoutManager extends LinearLayoutManager {
                         (getDecoratedBottom(child) + getDecoratedTop(child)) / 2.f;
                 float d = Math.min(d1, Math.abs(midpoint - childMidpoint));
                 float scale = s0 + (s1 - s0) * (d - d0) / (d1 - d0);
-                child.setScaleX(scale);
-                child.setScaleY(scale);
+                if(Float.isNaN(scale))
+                {child.setScaleX(scale);
+                child.setScaleY(scale);}
             }
             return scrolled;
         } else {

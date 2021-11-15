@@ -89,6 +89,54 @@ public class playvideo extends base2{
          firebaseAnalytics = FirebaseAnalytics.getInstance(this);
  firebaseAnalytics = FirebaseAnalytics.getInstance(this);
 firebaseAnalytics.logEvent("playvideo_character"+character, bundle);
+        ImageView callibrateimg=findViewById(R.id.loadingb);
+        textView=findViewById(R.id.instructiontext);
+        if (character == 1) {
+            callibrateimg.setImageResource(R.drawable.astracall);
+        } else if (character == 2) {
+            callibrateimg.setImageResource(R.drawable.doozycall);
+
+        } else if (character == 3) {
+            callibrateimg.setImageResource(R.drawable.grannycall);
+        } else if (character == 4) {
+            callibrateimg.setImageResource(R.drawable.ninjacall);
+        }
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        act = this;
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        height = displayMetrics.heightPixels;
+        width = displayMetrics.widthPixels;
+        previewView=findViewById(R.id.previewview);
+        videoplayer = new videoplayer(calculator, character);
+        videoplayer.context = this;
+        map.put("squat", () -> score = 4 * calculator.squatscore);
+        map.put("arm", () -> score = calculator.arm_score);
+        map.put("pistol", () -> score = 5 * calculator.pistol_Score);
+        map.put("sword", () -> score = 1 * calculator.stable_sword_score);
+        map.put("capoeria", () -> score = 2 * calculator.capoeria_score);
+        map.put("crossjumpr", () -> score = 2 * calculator.side_jump_score);
+        map.put("cross", () -> score = 2 * calculator.side_jump_score);
+        map.put("front", () -> score = 2 * calculator.frontrasiesscore);
+        map.put("harvest", () -> score = 2 * calculator.stable_sword_score);
+        map.put("hook", () -> score = 2 * calculator.stable_sword_score);
+        map.put("jazz", () -> score = 3 * calculator.jazzscore);
+        map.put("jog", () -> score = 1 * calculator.still_jog);
+        map.put("jump", () -> score = 2 * calculator.jump_score);
+        map.put("jjack", () -> score = 3* calculator.jump_jack);
+        map.put("sweep", () -> score = 3 * calculator.legsweep_score);
+        map.put("sidejump", () -> score = 2 * calculator.side_jump_score);
+        map.put("victory", () -> score = 2 * calculator.victory_score);
+        map.put("neck", () -> score = calculator.neck_right_left_score);
+        ImageView imageView = findViewById(R.id.loadingimg);
+        ImageView imageView2 = findViewById(R.id.pointing);
+        Glide.with(getApplicationContext())
+                .load(R.raw.load2).into(imageView);
+        Glide.with(getApplicationContext())
+                .load(R.raw.point).into(imageView2);
+        mediaPlayer2 = MediaPlayer.create(this, R.raw.coin);
+        mediaPlayer2.setLooping(false);
+        texttimer=findViewById(R.id.resttime);
     }
     public int getRotation(Context context) {
         final int rotation = ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getOrientation();
@@ -179,8 +227,6 @@ firebaseAnalytics.logEvent("playvideo_character"+character, bundle);
            try {
            break_screen_start();
            break_screen_end();
-
-
                run_screen();
            } catch (Exception e) {
 
@@ -421,7 +467,7 @@ firebaseAnalytics.logEvent("playvideo_character"+character, bundle);
     protected void onPause() {
         super.onPause();
         try {
-            mediaPlayer.stop();
+            mediaPlayer.pause();
         } catch (Exception e) {
         }
         SharedPreferences sharedPreferences;
@@ -443,7 +489,7 @@ firebaseAnalytics.logEvent("playvideo_character"+character, bundle);
             SharedPreferences.Editor myEdit = sharedPreferences.edit();
             myEdit.putString("score",s1);
             myEdit.commit();}
-        try{mediaPlayer.stop();}
+        try{mediaPlayer.pause();}
         catch (Exception E){}
 
     }
@@ -490,55 +536,11 @@ firebaseAnalytics.logEvent("playvideo_character"+character, bundle);
     }
     @Override
     protected void onResume() {
-        ImageView callibrateimg=findViewById(R.id.loadingb);
-        textView=findViewById(R.id.instructiontext);
-        if (character == 1) {
-            callibrateimg.setImageResource(R.drawable.astracall);
-        } else if (character == 2) {
-            callibrateimg.setImageResource(R.drawable.doozycall);
-
-        } else if (character == 3) {
-            callibrateimg.setImageResource(R.drawable.grannycall);
-        } else if (character == 4) {
-            callibrateimg.setImageResource(R.drawable.ninjacall);
-        }
         super.onResume();
-        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        act = this;
-        DisplayMetrics displayMetrics = new DisplayMetrics();
-        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
-        height = displayMetrics.heightPixels;
-        width = displayMetrics.widthPixels;
-        previewView=findViewById(R.id.previewview);
-        videoplayer = new videoplayer(calculator, character);
-        videoplayer.context = this;
-        map.put("squat", () -> score = 4 * calculator.squatscore);
-        map.put("arm", () -> score = calculator.arm_score);
-        map.put("pistol", () -> score = 5 * calculator.pistol_Score);
-        map.put("sword", () -> score = 1 * calculator.stable_sword_score);
-        map.put("capoeria", () -> score = 2 * calculator.capoeria_score);
-        map.put("crossjumpr", () -> score = 2 * calculator.side_jump_score);
-        map.put("cross", () -> score = 2 * calculator.side_jump_score);
-        map.put("front", () -> score = 2 * calculator.frontrasiesscore);
-        map.put("harvest", () -> score = 2 * calculator.stable_sword_score);
-        map.put("hook", () -> score = 2 * calculator.stable_sword_score);
-        map.put("jazz", () -> score = 3 * calculator.jazzscore);
-        map.put("jog", () -> score = 1 * calculator.still_jog);
-        map.put("jump", () -> score = 2 * calculator.jump_score);
-        map.put("jjack", () -> score = 3* calculator.jump_jack);
-        map.put("sweep", () -> score = 3 * calculator.legsweep_score);
-        map.put("sidejump", () -> score = 2 * calculator.side_jump_score);
-        map.put("victory", () -> score = 2 * calculator.victory_score);
-        map.put("neck", () -> score = calculator.neck_right_left_score);
-        ImageView imageView = findViewById(R.id.loadingimg);
-        ImageView imageView2 = findViewById(R.id.pointing);
-        Glide.with(act)
-                .load(R.raw.load2).into(imageView);
-        Glide.with(act)
-                .load(R.raw.point).into(imageView2);
-        mediaPlayer2 = MediaPlayer.create(this, R.raw.coin);
-        mediaPlayer2.setLooping(false);
-        texttimer=findViewById(R.id.resttime);
+        try{mediaPlayer.start();}
+        catch (Exception E){}
+        try{VideoView.start();}
+        catch (Exception E){}
     }
     @Override
     protected void onDestroy() {

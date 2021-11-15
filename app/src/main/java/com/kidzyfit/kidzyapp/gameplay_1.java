@@ -162,8 +162,8 @@ firebaseAnalytics.logEvent("gameplay1"+level_num, bundle);
         }.start();
     }
     protected void onPause() {
-        if (tim!=null)
-            tim.cancel();
+            if(tim!=null) 
+tim.cancel();
         if ( mp_bubble!=null)
             mp_bubble.stop();
         if ( mp_time!=null)
@@ -206,7 +206,7 @@ firebaseAnalytics.logEvent("gameplay1"+level_num, bundle);
         Log.i("valinc", "control: here3");
         if (finish_bool && !once) {
             ImageView temp = findViewById(R.id.level_complete_image);
-            Glide.with(this).asGif().load(R.raw.level_complete_1).into(temp);
+            Glide.with(getApplicationContext()).asGif().load(R.raw.level_complete_1).into(temp);
             Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
             aniFade.setDuration(1200);
             finish_level.setAnimation(aniFade);
@@ -236,6 +236,8 @@ firebaseAnalytics.logEvent("gameplay1"+level_num, bundle);
                     Intent intent = new Intent(act, level_screen_1.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    if(tim!=null) 
+tim.cancel();
                     finish();
                     if(mp_game_win.isPlaying()){
                         mp_game_win.stop();
@@ -249,7 +251,7 @@ firebaseAnalytics.logEvent("gameplay1"+level_num, bundle);
         else if (total_time_left == 0 && !once) {
             TextView time_text=findViewById(R.id.time_text_new);
             ImageView temp = findViewById(R.id.game_over_img);
-            Glide.with(this).asGif().load(R.raw.game_over_1).into(temp);
+            Glide.with(getApplicationContext()).asGif().load(R.raw.game_over_1).into(temp);
             Animation aniFade = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
             aniFade.setDuration(1200);
             Animation animation = new TranslateAnimation(0, -width/4-20+time_text.getWidth()/2,0, height/3-time_text.getHeight()/2);
@@ -276,18 +278,22 @@ firebaseAnalytics.logEvent("gameplay1"+level_num, bundle);
                     Intent intent = new Intent(act, level_screen_1.class);
                     startActivity(intent);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    if(tim!=null) 
+tim.cancel();
                     finish();
                 }
             });
             once = true;
             return;
-        } else if (face_count > 1 && !once) {
-            multiple_faces.setVisibility(View.VISIBLE);
-            if(!mp_time.isPlaying()){
-                mp_time.pause();
-            }
-            return;
-        } else if (outside_frame_time < -10 && !once) {
+        }
+//        else if (face_count > 1 && !once) {
+//            multiple_faces.setVisibility(View.VISIBLE);
+//            if(!mp_time.isPlaying()){
+//                mp_time.pause();
+//            }
+//            return;
+//        }
+        else if (outside_frame_time < -10 && !once) {
             if(!mp_time.isPlaying()){
                 mp_time.pause();
             }
@@ -696,6 +702,8 @@ firebaseAnalytics.logEvent("gameplay1"+level_num, bundle);
                 Intent i=new Intent(gameplay_1.this,level_screen_1.class);
                 startActivity(i);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                if(tim!=null) 
+tim.cancel();
                 finish();
             }
         });

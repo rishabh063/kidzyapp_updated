@@ -108,8 +108,6 @@ public class gameplay_0 extends base {
         rand=new Random();
         setContentView(R.layout.activity_gameplay_0);
         firebaseAnalytics = FirebaseAnalytics.getInstance(this);
-
-
         previewView=findViewById(R.id.camera_view);
         previewView.setVisibility(View.VISIBLE);
         drop=findViewById(R.id.juicedrop);
@@ -149,8 +147,8 @@ public class gameplay_0 extends base {
         super.onResume();
     }
     protected void onPause() {
-        if (tim!=null)
-            tim.cancel();
+            if(tim!=null) 
+tim.cancel();
         if ( mp_cut!=null)
             mp_cut.stop();
         if ( mp_time!=null)
@@ -276,6 +274,8 @@ public class gameplay_0 extends base {
                 public void onClick(View v) {
                     startActivity(intent);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    if(tim!=null) 
+tim.cancel();
                     finish();
                     if(mp_game_win.isPlaying()){
                         mp_game_win.stop();
@@ -321,18 +321,20 @@ public class gameplay_0 extends base {
                     }
                     startActivity(intent);
                     overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    if(tim!=null) 
+tim.cancel();
                     finish();
                 }
             });
 
         }
-        else if (face_count>1 && !once){
-            multiple_faces.setVisibility(View.VISIBLE);
-            if(!mp_time.isPlaying()){
-                mp_time.pause();
-            }
-            return;
-        }
+//        else if (face_count>1 && !once){
+//            multiple_faces.setVisibility(View.VISIBLE);
+//            if(!mp_time.isPlaying()){
+//                mp_time.pause();
+//            }
+//            return;
+//        }
         else  if (outside_frame_time<-10 && !once) {
             if(mp_time.isPlaying()){
                 mp_time.pause();
@@ -877,6 +879,8 @@ firebaseAnalytics.logEvent("game_play_0 result"+result+" progress"+progress, bun
                 i.putExtra("level",result);
                 startActivity(i);
                 overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                if(tim!=null) 
+tim.cancel();
                 finish();
             }
         });

@@ -100,15 +100,15 @@ firebaseAnalytics.logEvent("map", bundle);
           RelativeLayout new_area=findViewById(R.id.new_area_unlocked);
           ImageView temp_image=findViewById(R.id.new_area_unlocked_image);
           if (result3==1)
-          Glide.with(this).asGif().load(R.raw.city1_gif).into(temp_image);
+          Glide.with(getApplicationContext()).asGif().load(R.raw.city1_gif).into(temp_image);
           else if (result3==2)
-          Glide.with(this).asGif().load(R.raw.city2_gif).into(temp_image);
+          Glide.with(getApplicationContext()).asGif().load(R.raw.city2_gif).into(temp_image);
           else if (result3==3)
-          Glide.with(this).asGif().load(R.raw.city3_gif).into(temp_image);
+          Glide.with(getApplicationContext()).asGif().load(R.raw.city3_gif).into(temp_image);
           else if (result3==4)
-              Glide.with(this).asGif().load(R.raw.city4_gif).into(temp_image);
+              Glide.with(getApplicationContext()).asGif().load(R.raw.city4_gif).into(temp_image);
           else if (result3==5)
-              Glide.with(this).asGif().load(R.raw.city5_gif).into(temp_image);
+              Glide.with(getApplicationContext()).asGif().load(R.raw.city5_gif).into(temp_image);
           new_area.setVisibility(View.VISIBLE);
           Button temp_button=findViewById(R.id.new_area_unlocked_button);
           temp_button.setOnClickListener(new View.OnClickListener() {
